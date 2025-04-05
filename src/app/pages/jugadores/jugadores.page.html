@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Jugadores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let jugador of jugadores">
+      <ion-label class="jugador-info">
+        <h2>{{ jugador.nombre }} {{ jugador.apellidos }}</h2>
+        <p>Altura: {{ jugador.altura }} cm</p>
+        <p>Peso: {{ jugador.peso }} kg</p>
+        <p>Equipo: {{ jugador.equipo }}</p>
+      </ion-label>
+
+      <ion-button fill="clear" slot="end" (click)="abrirCamara(jugador)">
+        <ion-icon slot="icon-only" src="assets/icon/camera-outline.svg"></ion-icon>
+      </ion-button>
+      
+      <ion-button fill="clear" slot="end" (click)="compartirJugador(jugador)">
+        <ion-icon slot="icon-only" src="assets/icon/share-social-outline.svg"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
