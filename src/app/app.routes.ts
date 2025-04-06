@@ -27,6 +27,7 @@ export const routes: Routes = [
   },
   {
     path: 'jugador-detalle',
-    loadComponent: () => import('./pages/jugador-detalle/jugador-detalle.page').then( m => m.JugadorDetallePage)
-  },
+    loadComponent: () =>
+      import('./pages/jugador-detalle/jugador-detalle.page').then((m) => m.JugadorDetallePage),
+  }
 ];

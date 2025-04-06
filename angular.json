@@ -33,6 +33,11 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "src/assets/icon",
+                "output": "assets/icon"
               }
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],

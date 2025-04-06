@@ -1,25 +1,29 @@
 ion-content {
   --background: #121212;
   color: white;
+  display: block;
+  padding: 0;
+}
+
+.contenido {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+  min-height: 100vh; /* ✅ fuerza que use toda la altura */
+  box-sizing: border-box;
 }
 
 .form-wrapper {
-  padding: 24px 16px;
-  max-height: 100%;          // ← importante para permitir scroll si aparece teclado
-  overflow-y: auto;          // ← permite desplazar el formulario si es necesario
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .registro-wrapper {
-  padding: 16px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.input-group {
-  margin-bottom: 16px;
+  padding: 0;
+  text-align: center;
 }
 
 .input-group label {
@@ -50,14 +54,13 @@ ion-item {
 }
 
 .login-btn {
-  margin-top: 16px;
+  margin-top: 8px;
   --background: #4d90fe;
   color: #ffffff;
   font-weight: bold;
 }
 
 .registro-btn {
-  text-align: center;
   font-size: 0.95rem;
   color: #4d90fe;
 }

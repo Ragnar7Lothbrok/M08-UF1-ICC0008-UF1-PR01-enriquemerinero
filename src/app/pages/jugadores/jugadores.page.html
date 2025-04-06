@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let jugador of jugadores">
+    <ion-item *ngFor="let jugador of jugadores" button (click)="verDetalle(jugador)">
       <ion-label class="jugador-info">
         <h2>{{ jugador.nombre }} {{ jugador.apellidos }}</h2>
         <p>Altura: {{ jugador.altura }} cm</p>
@@ -14,11 +14,11 @@
         <p>Equipo: {{ jugador.equipo }}</p>
       </ion-label>
 
-      <ion-button fill="clear" slot="end" (click)="abrirCamara(jugador)">
+      <ion-button fill="clear" slot="end" (click)="abrirCamara(jugador); $event.stopPropagation();">
         <ion-icon slot="icon-only" src="assets/icon/camera-outline.svg"></ion-icon>
       </ion-button>
       
-      <ion-button fill="clear" slot="end" (click)="compartirJugador(jugador)">
+      <ion-button fill="clear" slot="end" (click)="compartirJugador(jugador); $event.stopPropagation();">
         <ion-icon slot="icon-only" src="assets/icon/share-social-outline.svg"></ion-icon>
       </ion-button>
     </ion-item>

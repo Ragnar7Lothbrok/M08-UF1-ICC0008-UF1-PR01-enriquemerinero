@@ -1,0 +1,28 @@
+ion-content {
+  --background: #121212;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 16px;
+  min-height: 100vh;
+}
+  
+.detalle-container {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+  
+h2 {
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+  
+p {
+  margin: 6px 0;
+  color: #cccccc;
+  font-size: 15px;
+}
+  

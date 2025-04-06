@@ -1,20 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-jugador-detalle',
+  standalone: true,
   templateUrl: './jugador-detalle.page.html',
   styleUrls: ['./jugador-detalle.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule]
 })
-export class JugadorDetallePage implements OnInit {
+export class JugadorDetallePage {
+  jugador: any;
+  esFavorito = false;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    console.log('📦 history.state:', history.state); // << para depuración
+
+    const datos = history.state.jugador;
+    if (datos) {
+      this.jugador = datos;
+    } else {
+      console.warn('⚠️ No se recibió ningún jugador en el estado');
+    }
   }
 
+  toggleFavorito() {
+    this.esFavorito = !this.esFavorito;
+    console.log(`${this.jugador?.nombre} es favorito:`, this.esFavorito);
+    // Aquí en el Nivel 3 puedes guardar en Firebase
+  }
 }

@@ -1,13 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>jugador-detalle</ion-title>
+    <ion-title>Detalle del Jugador</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">jugador-detalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="detalle-container" *ngIf="jugador">
+    <h2>{{ jugador.nombre }} {{ jugador.apellidos }}</h2>
+    <p><strong>Altura:</strong> {{ jugador.altura }} cm</p>
+    <p><strong>Peso:</strong> {{ jugador.peso }} kg</p>
+    <p><strong>Equipo:</strong> {{ jugador.equipo }}</p>
+    <p><strong>País:</strong> {{ jugador.pais || 'Desconocido' }}</p>
+    <p><strong>Número:</strong> {{ jugador.numero || 'Sin número' }}</p>
+    <p><strong>Posición:</strong> {{ jugador.posicion || 'Sin posición' }}</p>
+
+    <ion-button expand="block" (click)="toggleFavorito()" [color]="esFavorito ? 'danger' : 'medium'">
+      <ion-icon slot="start" name="heart"></ion-icon>
+      {{ esFavorito ? 'Quitar de favoritos' : 'Marcar como favorito' }}
+    </ion-button>
+  </div>
 </ion-content>

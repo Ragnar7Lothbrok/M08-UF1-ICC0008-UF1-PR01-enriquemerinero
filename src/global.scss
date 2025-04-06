@@ -34,5 +34,12 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+//@import '@ionic/angular/css/palettes/dark.system.css';
+@import '@ionic/angular/css/palettes/dark.always.css';
 
+ion-content {
+    display: block !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
