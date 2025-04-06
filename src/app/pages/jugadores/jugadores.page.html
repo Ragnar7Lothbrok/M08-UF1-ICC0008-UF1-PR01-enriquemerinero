@@ -4,23 +4,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
+<ion-content [scrollEvents]="true" fullscreen="true">
+  <ion-list *ngIf="jugadores.length > 0">
     <ion-item *ngFor="let jugador of jugadores" button (click)="verDetalle(jugador)">
       <ion-label class="jugador-info">
-        <h2>{{ jugador.nombre }} {{ jugador.apellidos }}</h2>
-        <p>Altura: {{ jugador.altura }} cm</p>
-        <p>Peso: {{ jugador.peso }} kg</p>
-        <p>Equipo: {{ jugador.equipo }}</p>
+        <h2>{{ jugador.first_name }} {{ jugador.last_name }}</h2>
+        <p>Posición: {{ jugador.position || 'Desconocida' }}</p>
+        <p>Equipo: {{ jugador.team.full_name }}</p>
+        <p>País: {{ jugador.country || 'No disponible' }}</p>
       </ion-label>
 
       <ion-button fill="clear" slot="end" (click)="abrirCamara(jugador); $event.stopPropagation();">
         <ion-icon slot="icon-only" src="assets/icon/camera-outline.svg"></ion-icon>
       </ion-button>
-      
+
       <ion-button fill="clear" slot="end" (click)="compartirJugador(jugador); $event.stopPropagation();">
         <ion-icon slot="icon-only" src="assets/icon/share-social-outline.svg"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
+
+  <!-- opcional: mensaje si no hay datos -->
+  <div *ngIf="jugadores.length === 0" class="vacio">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando jugadores...</p>
+  </div>
 </ion-content>

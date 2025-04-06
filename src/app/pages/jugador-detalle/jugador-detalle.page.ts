@@ -29,7 +29,7 @@ export class JugadorDetallePage {
 
   toggleFavorito() {
     this.esFavorito = !this.esFavorito;
-    console.log(`${this.jugador?.nombre} es favorito:`, this.esFavorito);
+    console.log(`${this.jugador?.first_name} ${this.jugador?.last_name} es favorito:`, this.esFavorito);
     // Aquí en el Nivel 3 puedes guardar en Firebase
   }
 }

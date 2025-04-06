@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { JugadoresService } from '../../services/jugadores.service';
 
 @Component({
   selector: 'app-jugadores',
@@ -10,50 +11,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./jugadores.page.scss'],
   imports: [IonicModule, CommonModule]
 })
-export class JugadoresPage {
-  jugadores = [
-    {
-      nombre: 'Luka',
-      apellidos: 'Dončić',
-      altura: 201,
-      peso: 104,
-      equipo: 'Dallas Mavericks',
-      pais: 'Eslovenia',
-      numero: 77,
-      posicion: 'Base'
-    },
-    {
-      nombre: 'Victor',
-      apellidos: 'Wembanyama',
-      altura: 224,
-      peso: 95,
-      equipo: 'San Antonio Spurs',
-      pais: 'Francia',
-      numero: 1,
-      posicion: 'Pívot'
-    },
-    {
-      nombre: 'Scoot',
-      apellidos: 'Henderson',
-      altura: 191,
-      peso: 92,
-      equipo: 'Portland Trail Blazers',
-      pais: 'Estados Unidos',
-      numero: 0,
-      posicion: 'Base'
-    }
-  ];
+export class JugadoresPage implements OnInit {
+  jugadores: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private jugadoresService: JugadoresService
+  ) {}
+
+  ngOnInit() {
+    this.jugadoresService.getJugadores().subscribe((response) => {
+      this.jugadores = response.data;
+    });
+  }
 
   abrirCamara(jugador: any) {
-    console.log('📷 Cámara para:', jugador.nombre);
-    // Aquí va la integración futura con @capacitor/camera
+    console.log('📷 Cámara para:', jugador.first_name);
   }
 
   compartirJugador(jugador: any) {
-    console.log('📤 Compartir jugador:', jugador.nombre);
-    // Aquí va la integración futura con @capacitor/share
+    console.log('📤 Compartir jugador:', jugador.first_name);
   }
 
   verDetalle(jugador: any) {

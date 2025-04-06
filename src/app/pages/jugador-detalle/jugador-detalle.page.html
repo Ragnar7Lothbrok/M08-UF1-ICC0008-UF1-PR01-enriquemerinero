@@ -6,13 +6,19 @@
 
 <ion-content>
   <div class="detalle-container" *ngIf="jugador">
-    <h2>{{ jugador.nombre }} {{ jugador.apellidos }}</h2>
-    <p><strong>Altura:</strong> {{ jugador.altura }} cm</p>
-    <p><strong>Peso:</strong> {{ jugador.peso }} kg</p>
-    <p><strong>Equipo:</strong> {{ jugador.equipo }}</p>
-    <p><strong>País:</strong> {{ jugador.pais || 'Desconocido' }}</p>
-    <p><strong>Número:</strong> {{ jugador.numero || 'Sin número' }}</p>
-    <p><strong>Posición:</strong> {{ jugador.posicion || 'Sin posición' }}</p>
+    <h2>{{ jugador.first_name }} {{ jugador.last_name }}</h2>
+
+    <p><strong>Posición:</strong> {{ jugador.position || 'Sin posición' }}</p>
+    <p><strong>Número:</strong> {{ jugador.jersey_number || 'No asignado' }}</p>
+    <p><strong>Altura:</strong> {{ jugador.height || 'Desconocida' }}</p>
+    <p><strong>Peso:</strong> {{ jugador.weight || 'Desconocido' }} lbs</p>
+    <p><strong>País:</strong> {{ jugador.country || 'Desconocido' }}</p>
+    <p><strong>Universidad:</strong> {{ jugador.college || 'No especificada' }}</p>
+
+    <p><strong>Equipo:</strong> {{ jugador.team?.full_name }}</p>
+    <p><strong>Ciudad:</strong> {{ jugador.team?.city }}</p>
+    <p><strong>Conferencia:</strong> {{ jugador.team?.conference }}</p>
+    <p><strong>División:</strong> {{ jugador.team?.division }}</p>
 
     <ion-button expand="block" (click)="toggleFavorito()" [color]="esFavorito ? 'danger' : 'medium'">
       <ion-icon slot="start" name="heart"></ion-icon>

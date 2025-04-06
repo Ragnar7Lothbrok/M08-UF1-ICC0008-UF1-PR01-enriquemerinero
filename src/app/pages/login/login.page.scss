@@ -3,6 +3,8 @@ ion-content {
   color: white;
   display: block;
   padding: 0;
+  overflow-y: auto;  /* ✅ habilita scroll */
+  height: 100%;       /* ✅ asegura altura correcta */
 }
 
 .contenido {
@@ -11,7 +13,7 @@ ion-content {
   flex-direction: column;
   justify-content: flex-start;
   gap: 24px;
-  min-height: 100vh; /* ✅ fuerza que use toda la altura */
+  height: 100%;       /* ✅ evita que se quede abajo */
   box-sizing: border-box;
 }
 

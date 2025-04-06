@@ -5,24 +5,24 @@ ion-content {
   flex-direction: column;
   justify-content: flex-start;
   padding: 16px;
-  min-height: 100vh;
+  height: 100%;       /* ✅ para altura correcta */
+  overflow-y: auto;   /* ✅ scroll habilitado */
 }
-  
+
 .detalle-container {
   background-color: #1e1e1e;
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
 }
-  
+
 h2 {
   margin-bottom: 12px;
   color: #ffffff;
 }
-  
+
 p {
   margin: 6px 0;
   color: #cccccc;
   font-size: 15px;
 }
-  
