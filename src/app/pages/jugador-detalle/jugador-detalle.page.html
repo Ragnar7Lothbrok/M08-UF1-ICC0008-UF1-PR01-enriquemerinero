@@ -21,7 +21,7 @@
     <p><strong>División:</strong> {{ jugador.team?.division }}</p>
 
     <ion-button expand="block" (click)="toggleFavorito()" [color]="esFavorito ? 'danger' : 'medium'">
-      <ion-icon slot="start" name="heart"></ion-icon>
+      <ion-icon slot="start" [name]="esFavorito ? 'heart' : 'heart-outline'"></ion-icon>
       {{ esFavorito ? 'Quitar de favoritos' : 'Marcar como favorito' }}
     </ion-button>
   </div>

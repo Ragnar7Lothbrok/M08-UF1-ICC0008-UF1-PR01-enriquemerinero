@@ -3,8 +3,8 @@ ion-content {
   color: white;
   display: block;
   padding: 0;
-  overflow-y: auto;  /* ✅ habilita scroll */
-  height: 100%;       /* ✅ asegura altura correcta */
+  overflow-y: auto;   // permite scroll si es necesario
+  height: 100%;
 }
 
 .contenido {
@@ -13,7 +13,7 @@ ion-content {
   flex-direction: column;
   justify-content: flex-start;
   gap: 24px;
-  height: 100%; /* ✅ en lugar de min-height: 100vh */
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -23,24 +23,23 @@ ion-content {
   gap: 16px;
 }
 
-.registro-wrapper {
-  padding: 0;
-  text-align: center;
+.input-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .input-group label {
   color: #b0b0b0;
   font-size: 16px;
   margin-bottom: 4px;
-  display: block;
   padding-left: 4px;
 }
 
 ion-item {
   --background: #1e1e1e;
   --border-radius: 8px;
-  align-items: center;
   padding-inline-start: 0;
+  align-items: center;
 }
 
 .styled-input {
@@ -60,9 +59,16 @@ ion-item {
   --background: #4d90fe;
   color: #ffffff;
   font-weight: bold;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.registro-wrapper {
+  text-align: center;
 }
 
 .registro-btn {
   font-size: 0.95rem;
   color: #4d90fe;
+  text-decoration: underline;
 }
