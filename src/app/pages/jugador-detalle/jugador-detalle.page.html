@@ -6,6 +6,7 @@
 
 <ion-content>
   <div class="detalle-container" *ngIf="jugador">
+    <img *ngIf="jugador.imagen" [src]="jugador.imagen" class="jugador-foto" />
     <h2>{{ jugador.first_name }} {{ jugador.last_name }}</h2>
 
     <p><strong>Posición:</strong> {{ jugador.position || 'Sin posición' }}</p>
